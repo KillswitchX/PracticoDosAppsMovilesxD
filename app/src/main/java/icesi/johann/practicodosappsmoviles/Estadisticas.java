@@ -33,7 +33,7 @@ public class Estadisticas extends AppCompatActivity {
         estadisticasHeroes= findViewById(R.id.et_grupo_superheroes);
         rtdb = FirebaseDatabase.getInstance().getReference();
         lista = new ArrayList<String>();
-        initHeroes();
+        //initHeroes();
     }
 
     public String initHeroes() {

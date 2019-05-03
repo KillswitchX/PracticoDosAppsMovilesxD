@@ -76,6 +76,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "540865610388-q7cqbqer4jv48k2cn9t70ue0veofe9h5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "icesi.johann.practicodosappsmoviles",
+            "certificate_hash": "44d945a3d7dfede9a6cb9c6d35d8a4669ecfdb32"
+          }
+        },
+        {
           "client_id": "540865610388-7qjulnsdacmn9n9557h7o6mguajpo72u.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

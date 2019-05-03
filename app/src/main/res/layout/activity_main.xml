@@ -15,7 +15,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Usted pertenence a"
+            android:text="Usted es"
+            android:textStyle="bold"
             />
         <RadioGroup
             android:layout_width="match_parent"
@@ -26,31 +27,31 @@
         <RadioButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Mujeres adultas"
+            android:text="Una Mujer adulta (+18)"
             android:id="@+id/Mujeres_adultas"
             />
         <RadioButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hombres adultos"
+            android:text="Un Hombre adulto (+18)"
             android:id="@+id/Hombres_adultos"
             />
         <RadioButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Mujeres adolescentes"
+            android:text="Una Mujer adolescente (12-18)"
             android:id="@+id/Mujeres_adolescentes"
             />
         <RadioButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hombres adolescentes"
+            android:text="Un Hombre adolescente (12-18)"
             android:id="@+id/Hombres_adolescentes"
             />
         <RadioButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Niños"
+            android:text="Un Niño(a) (-12)"
             android:id="@+id/niños"
             />
 
@@ -62,6 +63,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Encuesta"
+            android:layout_marginTop="15dp"
+            android:textStyle="bold"
             />
         <RadioGroup
             android:layout_width="match_parent"
@@ -102,7 +105,7 @@
             <RadioButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="La viuda negra"
+                android:text="La Viuda Negra"
                 android:id="@+id/la_viuda_negra"
                 />
             <RadioButton

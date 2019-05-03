@@ -141,7 +141,7 @@
 
                     android:gravity="center"
 
-                    android:text="                    Grupos_superheroes                   "
+                    android:text="     Grupos_de superheroes    "
 
                     android:textStyle="bold"
 
@@ -174,7 +174,7 @@
 
                     android:gravity="center"
 
-                    android:text="                    Grupos_personas                   "
+                    android:text="        Grupos de_personas      "
 
                     android:textStyle="bold"
 

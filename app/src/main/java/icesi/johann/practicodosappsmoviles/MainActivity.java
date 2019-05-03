@@ -12,8 +12,11 @@ import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import icesi.johann.practicodosappsmoviles.model.Register;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -69,30 +72,31 @@ public class MainActivity extends AppCompatActivity {
 
                     if(grupo_superheroes.getCheckedRadioButtonId() != -1){
 
+                        String group = "";
                         if(i == R.id.Mujeres_adultas){
                             cont_mujeresAdultas++;
 
-                            rtdb.child("people").child("mujeres_adultas").child(cont_mujeresAdultas+"");
+                            group = "mujeres_adultas";
                         }
                         else if(i == R.id.Hombres_adultos){
                             cont_hombresAdultos++;
 
-                            //rtdb.getReference().child("people").child("hombres_adultos").child(cont_hombresAdultos+"");
+                            group = "hombres adultos";
                         }
                         else if (i == R.id.Mujeres_adolescentes){
                             cont_hombresAdolescentes++;
 
-                            //rtdb.getReference().child("people").child("mujeres_adolescentes").child(cont_mujeresAdolescentes+"");
+                            group = "mujeres adolescentes";
                         }
                         else if(i == R.id.Hombres_adolescentes){
                             cont_hombresAdolescentes++;
 
-                            //rtdb.getReference().child("people").child("hombres adoelscentes").child(cont_hombresAdolescentes+"");
+                            group = "hombres adolescentes";
                         }
                         else if(i == R.id.niños){
                             cont_niños++;
 
-                            //rtdb.getReference().child("people").child("niños").child(cont_niños+"");
+                            group = "niños";
                         }
 
 
@@ -100,49 +104,97 @@ public class MainActivity extends AppCompatActivity {
                             cont_spiderman++;
                             total_votos++;
                             int x = porcentaje(cont_spiderman, total_votos);
-                            rtdb.child("hero").child(cont_spiderman+"");
+                            Register r = new Register(group,"Spiderman");
+                            rtdb.child("Registers").push().setValue(r).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Toast.makeText(getApplicationContext(), "Usted ha votado satisfactoriamente", Toast.LENGTH_LONG).show();
+                                }
+                            });
                         }
                         else if(b == R.id.ironman){
                             cont_ironman++;
                             total_votos++;
                             int x = porcentaje(cont_ironman, total_votos);
-                            rtdb.child("hero").child(cont_ironman+"");
+                            Register r = new Register(group,"Ironman");
+                            rtdb.child("Registers").push().setValue(r).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Toast.makeText(getApplicationContext(), "Usted ha votado satisfactoriamente", Toast.LENGTH_LONG).show();
+                                }
+                            });
                         }
                         else if (b == R.id.capitan_america){
                             cont_capitanAmerica++;
                             total_votos++;
                             int x = porcentaje(cont_capitanAmerica, total_votos);
-                            rtdb.child("hero").child(cont_capitanAmerica+"");
+                            Register r = new Register(group,"Capitan America");
+                            rtdb.child("Registers").push().setValue(r).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Toast.makeText(getApplicationContext(), "Usted ha votado satisfactoriamente", Toast.LENGTH_LONG).show();
+                                }
+                            });
                         }
                         else if(b == R.id.capitana_marvel){
                             cont_capitanaMarvel++;
                             total_votos++;
                             int x = porcentaje(cont_capitanaMarvel, total_votos);
-                            rtdb.child("hero").child(cont_capitanaMarvel+"");
+                            Register r = new Register(group,"Capitana Marvel");
+                            rtdb.child("Registers").push().setValue(r).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Toast.makeText(getApplicationContext(), "Usted ha votado satisfactoriamente", Toast.LENGTH_LONG).show();
+                                }
+                            });
                         }
                         else if(b == R.id.hulk){
                             cont_hulk++;
                             total_votos++;
                             int x = porcentaje(cont_hulk, total_votos);
-                            rtdb.child("hero").child(cont_hulk+"");
+                            Register r = new Register(group,"Hulk");
+                            rtdb.child("Registers").push().setValue(r).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Toast.makeText(getApplicationContext(), "Usted ha votado satisfactoriamente", Toast.LENGTH_LONG).show();
+                                }
+                            });
                         }
                         else if(b == R.id.la_viuda_negra){
                             cont_laViudaNegra++;
                             total_votos++;
                             int x = porcentaje(cont_laViudaNegra, total_votos);
-                            rtdb.child("hero").child(cont_laViudaNegra+"");
+                            Register r = new Register(group,"La Viuda Negra");
+                            rtdb.child("Registers").push().setValue(r).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Toast.makeText(getApplicationContext(), "Usted ha votado satisfactoriamente", Toast.LENGTH_LONG).show();
+                                }
+                            });
                         }
                         else if(b == R.id.thor){
                             cont_thor++;
                             total_votos++;
                             int x = porcentaje(cont_thor, total_votos);
-                            rtdb.child("hero").child(cont_thor+"");
+                            Register r = new Register(group,"Thor");
+                            rtdb.child("Registers").push().setValue(r).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Toast.makeText(getApplicationContext(), "Usted ha votado satisfactoriamente", Toast.LENGTH_LONG).show();
+                                }
+                            });
                         }
                         else if(b == R.id.doctor_strange){
                             cont_doctorStrange++;
                             total_votos++;
                             int x = porcentaje(cont_doctorStrange,total_votos);
-                            rtdb.child("hero").child(cont_doctorStrange+"");
+                            Register r = new Register(group,"Doctor Strange");
+                            rtdb.child("Registers").push().setValue(r).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Toast.makeText(getApplicationContext(), "Usted ha votado satisfactoriamente", Toast.LENGTH_LONG).show();
+                                }
+                            });
                         }
 
 
@@ -151,11 +203,11 @@ public class MainActivity extends AppCompatActivity {
                         showPopup();
                     }
                     else{
-                        Toast.makeText(MainActivity.this, "Seleccione superheroe", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Seleccione un superheroe", Toast.LENGTH_SHORT).show();
                     }
                 }
                 else{
-                    Toast.makeText(MainActivity.this, "Seleccione grupo", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Seleccione un grupo", Toast.LENGTH_SHORT).show();
                 }
 
 
