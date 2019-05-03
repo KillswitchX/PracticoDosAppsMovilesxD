@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,8 +14,11 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import icesi.johann.practicodosappsmoviles.model.Register;
 
@@ -66,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int i = grupo_grupo.getCheckedRadioButtonId();
                 int b = grupo_superheroes.getCheckedRadioButtonId();
-                rtdb.child("people").child("mujeres_adultas").child(cont_mujeresAdultas+"");
+
 
                 if(grupo_grupo.getCheckedRadioButtonId() != -1){
 
@@ -192,7 +196,8 @@ public class MainActivity extends AppCompatActivity {
                             rtdb.child("Registers").push().setValue(r).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
-                                    Toast.makeText(getApplicationContext(), "Usted ha votado satisfactoriamente", Toast.LENGTH_LONG).show();
+                                    //Toast.makeText(getApplicationContext(), "Usted ha votado satisfactoriamente", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getApplicationContext(), ""+totalVotos(), Toast.LENGTH_LONG).show();
                                 }
                             });
                         }
@@ -278,6 +283,23 @@ public class MainActivity extends AppCompatActivity {
     public int porcentaje(int a, int b){
         return  (a*100)/b;
 
+    }
+
+    public int totalVotos =0;
+
+    public int totalVotos(){
+        rtdb.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                totalVotos= (int) (dataSnapshot.getChildrenCount());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        return totalVotos;
     }
 
 
