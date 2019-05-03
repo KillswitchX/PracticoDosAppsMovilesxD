@@ -1,6 +1,7 @@
 package icesi.johann.practicodosappsmoviles;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
@@ -211,7 +212,8 @@ public class MainActivity extends AppCompatActivity {
         getBtn_grupos_superheroes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent i = new Intent();
+                startActivity(i);
             }
         });
 
