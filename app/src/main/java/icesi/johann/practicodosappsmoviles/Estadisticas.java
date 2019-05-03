@@ -11,11 +11,23 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
+import icesi.johann.practicodosappsmoviles.model.Register;
+
 public class Estadisticas extends AppCompatActivity {
+
+    public static final String SPIDERMAN = "Spiderman";
+    public static final String IRONMAN = "Ironman";
+    public static final String CAPITAN_AMERICA = "Capitan America";
+    public static final String CAPITANA_MARVEL = "Capitana Marvel";
+    public static final String HULK = "Hulk";
+    public static final String LA_VIUDA_NEGRA = "La Viuda Negra";
+    public static final String THOR = "Thor";
+    public static final String DOCTOR_STRANGE = "Doctor Strange";
 
     private EditText estadisticasHeroes;
 
@@ -25,6 +37,10 @@ public class Estadisticas extends AppCompatActivity {
 
     DatabaseReference rtdb;
 
+    public int totalVotos = 0;
+
+    public ArrayList<Register> registers;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,11 +49,34 @@ public class Estadisticas extends AppCompatActivity {
         estadisticasHeroes= findViewById(R.id.et_grupo_superheroes);
         rtdb = FirebaseDatabase.getInstance().getReference();
         lista = new ArrayList<String>();
+        registers = new ArrayList<>();
+        String text = "";
+        rtdb.child("Registers").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot c:dataSnapshot.getChildren()) {
+                    Register r = c.getValue(Register.class);
+                    registers.add(r);
+                }
+            }
+
+            @Override
+
+
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        int y = totalVotos();
+        int f = registers.size();
+        text+=y;
+        estadisticasHeroes.setText(text +"   "  + f);
+
         //initHeroes();
     }
 
     public String initHeroes() {
-        String spiderman = "Spiderman: " + "\n";
+        String spiderman = "Spiderman: ";
         String ironman = "Ironman: " + "\n";
         String capitanaMarvel = "Capitana Marvel: " + "\n";
         String capitanAmerica = "Capitan America: " + "\n";
@@ -57,26 +96,26 @@ public class Estadisticas extends AppCompatActivity {
 
         while (i<lista.size()){
 
-        rtdb.child("hero").child(lista.get(i)).addChildEventListener(new ChildEventListener() {
+
+
+        }
+
+
+    String sum = spiderman + "\n" + ironman + "\n" + capitanaMarvel + "\n" + capitanAmerica + "\n" +
+            DoctorStrange + "\n" + DoctorStrange + "\n" + hulk + "\n" + laViudaNegra + "\n";
+
+        estadisticasHeroes.setText(sum);
+        return "";
+    }
+
+    public int totalVotos(){
+        rtdb.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                String num = dataSnapshot.getValue(String.class);
-                lista.set(i, lista.get(i)+num);
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot c:dataSnapshot.getChildren()) {
+                    Register r = c.getValue(Register.class);
+                    registers.add(r);
+                }
             }
 
             @Override
@@ -84,12 +123,12 @@ public class Estadisticas extends AppCompatActivity {
 
             }
         });
-
+        return totalVotos;
     }
-    String sum = spiderman + ironman + capitanaMarvel + capitanAmerica + DoctorStrange + DoctorStrange + hulk + laViudaNegra;
 
-        estadisticasHeroes.setText(sum);
-        return "";
+    public int porcentaje(int a, int b){
+        return  (a*100)/b;
+
     }
 
 }
