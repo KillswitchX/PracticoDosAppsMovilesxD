@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
@@ -41,7 +42,8 @@ public class MainActivity extends AppCompatActivity {
 
     //private FirebaseAuth mAuth;
 
-    FirebaseDatabase rtdb;
+    DatabaseReference rtdb;
+
 
 
 
@@ -54,12 +56,13 @@ public class MainActivity extends AppCompatActivity {
         grupo_superheroes = findViewById(R.id.rg_superheroes);
         btn_aceptar = findViewById(R.id.btn_aceptarEncuesta);
         //mAuth = FirebaseAuth.getInstance();
-        rtdb = FirebaseDatabase.getInstance();
+        rtdb = FirebaseDatabase.getInstance().getReference();
         btn_aceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int i = grupo_grupo.getCheckedRadioButtonId();
                 int b = grupo_superheroes.getCheckedRadioButtonId();
+                rtdb.child("people").child("mujeres_adultas").child(cont_mujeresAdultas+"");
 
                 if(grupo_grupo.getCheckedRadioButtonId() != -1){
 
@@ -68,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                         if(i == R.id.Mujeres_adultas){
                             cont_mujeresAdultas++;
 
-                            //rtdb.getReference().child("people").child("mujeres_adultas").child(cont_mujeresAdultas+"");
+                            rtdb.child("people").child("mujeres_adultas").child(cont_mujeresAdultas+"");
                         }
                         else if(i == R.id.Hombres_adultos){
                             cont_hombresAdultos++;
@@ -96,49 +99,49 @@ public class MainActivity extends AppCompatActivity {
                             cont_spiderman++;
                             total_votos++;
                             int x = porcentaje(cont_spiderman, total_votos);
-                            rtdb.getReference().child("hero").child(cont_spiderman+"");
+                            rtdb.child("hero").child(cont_spiderman+"");
                         }
                         else if(b == R.id.ironman){
                             cont_ironman++;
                             total_votos++;
                             int x = porcentaje(cont_ironman, total_votos);
-                            rtdb.getReference().child("hero").child(cont_ironman+"");
+                            rtdb.child("hero").child(cont_ironman+"");
                         }
                         else if (b == R.id.capitan_america){
                             cont_capitanAmerica++;
                             total_votos++;
                             int x = porcentaje(cont_capitanAmerica, total_votos);
-                            rtdb.getReference().child("hero").child(cont_capitanAmerica+"");
+                            rtdb.child("hero").child(cont_capitanAmerica+"");
                         }
                         else if(b == R.id.capitana_marvel){
                             cont_capitanaMarvel++;
                             total_votos++;
                             int x = porcentaje(cont_capitanaMarvel, total_votos);
-                            rtdb.getReference().child("hero").child(cont_capitanaMarvel+"");
+                            rtdb.child("hero").child(cont_capitanaMarvel+"");
                         }
                         else if(b == R.id.hulk){
                             cont_hulk++;
                             total_votos++;
                             int x = porcentaje(cont_hulk, total_votos);
-                            rtdb.getReference().child("hero").child(cont_hulk+"");
+                            rtdb.child("hero").child(cont_hulk+"");
                         }
                         else if(b == R.id.la_viuda_negra){
                             cont_laViudaNegra++;
                             total_votos++;
                             int x = porcentaje(cont_laViudaNegra, total_votos);
-                            rtdb.getReference().child("hero").child(cont_laViudaNegra+"");
+                            rtdb.child("hero").child(cont_laViudaNegra+"");
                         }
                         else if(b == R.id.thor){
                             cont_thor++;
                             total_votos++;
                             int x = porcentaje(cont_thor, total_votos);
-                            rtdb.getReference().child("hero").child(cont_thor+"");
+                            rtdb.child("hero").child(cont_thor+"");
                         }
                         else if(b == R.id.doctor_strange){
                             cont_doctorStrange++;
                             total_votos++;
                             int x = porcentaje(cont_doctorStrange,total_votos);
-                            rtdb.getReference().child("hero").child(cont_doctorStrange+"");
+                            rtdb.child("hero").child(cont_doctorStrange+"");
                         }
 
 
