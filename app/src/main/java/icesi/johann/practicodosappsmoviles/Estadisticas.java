@@ -67,12 +67,13 @@ public class Estadisticas extends AppCompatActivity {
 
             }
         });
+
         int y = totalVotos();
         int f = registers.size();
         text+=y;
         estadisticasHeroes.setText(text +"   "  + f);
 
-        //initHeroes();
+        initHeroes();
     }
 
     public String initHeroes() {
@@ -94,28 +95,36 @@ public class Estadisticas extends AppCompatActivity {
         lista.add(Thor);
         lista.add(DoctorStrange);
 
-        while (i<lista.size()){
-
-
-
-        }
-
 
     String sum = spiderman + "\n" + ironman + "\n" + capitanaMarvel + "\n" + capitanAmerica + "\n" +
             DoctorStrange + "\n" + DoctorStrange + "\n" + hulk + "\n" + laViudaNegra + "\n";
+
+    sum+=totalVotos();
 
         estadisticasHeroes.setText(sum);
         return "";
     }
 
     public int totalVotos(){
-        rtdb.addListenerForSingleValueEvent(new ValueEventListener() {
+        rtdb.child("Registers").addChildEventListener(new ChildEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot c:dataSnapshot.getChildren()) {
-                    Register r = c.getValue(Register.class);
-                    registers.add(r);
-                }
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                totalVotos = (int)dataSnapshot.getChildrenCount();
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                totalVotos = (int)dataSnapshot.getChildrenCount();
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+                totalVotos = (int)dataSnapshot.getChildrenCount();
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                totalVotos = (int)dataSnapshot.getChildrenCount();
             }
 
             @Override
