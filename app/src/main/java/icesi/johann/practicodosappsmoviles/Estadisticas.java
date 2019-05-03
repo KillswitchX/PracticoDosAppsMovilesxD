@@ -21,6 +21,8 @@ public class Estadisticas extends AppCompatActivity {
 
     public int i;
 
+    public ArrayList<String> lista;
+
     DatabaseReference rtdb;
 
     @Override
@@ -30,11 +32,11 @@ public class Estadisticas extends AppCompatActivity {
 
         estadisticasHeroes= findViewById(R.id.et_grupo_superheroes);
         rtdb = FirebaseDatabase.getInstance().getReference();
-
+        lista = new ArrayList<String>();
     }
 
     public String initHeroes() {
-        final String spiderman = "Spiderman: " + "\n";
+        String spiderman = "Spiderman: " + "\n";
         String ironman = "Ironman: " + "\n";
         String capitanaMarvel = "Capitana Marvel: " + "\n";
         String capitanAmerica = "Capitan America: " + "\n";
@@ -42,7 +44,7 @@ public class Estadisticas extends AppCompatActivity {
         String laViudaNegra = "La viuda negra: " + "\n";
         String Thor = "Thor: " + "\n";
         String DoctorStrange = "Doctor Strange: " + "\n";
-        final ArrayList<String> lista = new ArrayList<String>();
+
         lista.add(spiderman);
         lista.add(ironman);
         lista.add(capitanaMarvel);
@@ -58,9 +60,7 @@ public class Estadisticas extends AppCompatActivity {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 String num = dataSnapshot.getValue(String.class);
-
-
-
+                lista.set(i, lista.get(i)+num);
             }
 
             @Override
@@ -85,8 +85,9 @@ public class Estadisticas extends AppCompatActivity {
         });
 
     }
+    String sum = spiderman + ironman + capitanaMarvel + capitanAmerica + DoctorStrange + DoctorStrange + hulk + laViudaNegra;
 
-        estadisticasHeroes.setText(spiderman);
+        estadisticasHeroes.setText(sum);
         return "";
     }
 
