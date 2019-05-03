@@ -212,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
         getBtn_grupos_superheroes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent();
+                Intent i = new Intent(MainActivity.this, Estadisticas.class);
                 startActivity(i);
             }
         });
