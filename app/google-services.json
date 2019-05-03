@@ -1,0 +1,109 @@
+{
+  "project_info": {
+    "project_number": "540865610388",
+    "firebase_url": "https://circular-acumen-232520.firebaseio.com",
+    "project_id": "circular-acumen-232520",
+    "storage_bucket": "circular-acumen-232520.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:540865610388:android:eea08145c38f2212",
+        "android_client_info": {
+          "package_name": "appmoviles.com.appsmoviles20191"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "540865610388-iprjvda7gor23i7b5emargct2qa14th8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "appmoviles.com.appsmoviles20191",
+            "certificate_hash": "44d945a3d7dfede9a6cb9c6d35d8a4669ecfdb32"
+          }
+        },
+        {
+          "client_id": "540865610388-5fs9a77s9qubbdhdbbo450kmb4uh7so7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "appmoviles.com.appsmoviles20191",
+            "certificate_hash": "62ec75aad1f52bd2e76169113649d424a6e81533"
+          }
+        },
+        {
+          "client_id": "540865610388-9nofusmptkg6jqb6d37u5c1djbqodd6c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "appmoviles.com.appsmoviles20191",
+            "certificate_hash": "53afc81c0fc29c8abd12b83b3b85ed7a7cc0f252"
+          }
+        },
+        {
+          "client_id": "540865610388-jusiet77vpcqeo32bkktrho4o8p3onp5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "appmoviles.com.appsmoviles20191",
+            "certificate_hash": "4882f72081043c9350e6150f8e93ba0c2f7bf705"
+          }
+        },
+        {
+          "client_id": "540865610388-pmalg3fqqgs5cdr5ifirvntvtfddujrm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlhYjcZqHCz-Mw_808k0I99UxsMGt_waI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "540865610388-pmalg3fqqgs5cdr5ifirvntvtfddujrm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:540865610388:android:58a158114ad32b2b",
+        "android_client_info": {
+          "package_name": "icesi.johann.practicodosappsmoviles"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "540865610388-7qjulnsdacmn9n9557h7o6mguajpo72u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "icesi.johann.practicodosappsmoviles",
+            "certificate_hash": "4882f72081043c9350e6150f8e93ba0c2f7bf705"
+          }
+        },
+        {
+          "client_id": "540865610388-pmalg3fqqgs5cdr5ifirvntvtfddujrm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlhYjcZqHCz-Mw_808k0I99UxsMGt_waI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "540865610388-pmalg3fqqgs5cdr5ifirvntvtfddujrm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
